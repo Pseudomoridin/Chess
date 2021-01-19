@@ -16,6 +16,9 @@ class knight():
     self.position[0] = x
     self.position[1] = y
 
+  def get_type(self):
+    return "knight"
+
   def get_position(self):
     return self.position
 
