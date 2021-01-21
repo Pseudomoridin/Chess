@@ -1,6 +1,7 @@
 from chess_board import board
 
 chessboard = board()
+#"""
 while True:
   print_board = chessboard.return_board()
   x = 1
@@ -13,3 +14,4 @@ while True:
   print("\n\n\tA B C D E F G H")
   chessboard.move_piece(input())
   chessboard.store_board()
+#"""

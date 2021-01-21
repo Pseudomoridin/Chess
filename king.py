@@ -1,14 +1,11 @@
+from string import ascii_lowercase
 class king():
-  def __init__(self, colour):
+  def __init__(self, colour, position):
     self.colour = colour
-    if self.colour == "white":
-      self.position = [5, 0]
-    elif self.colour == "black":
-      self.position = [5, 8]
+    self.position = position
   
-  def set_position(self, x, y):
-    self.position[0] = x
-    self.position[1] = y
+  def set_position(self, position):
+    self.position = position
 
   def get_type(self):
     return "K"

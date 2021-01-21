@@ -1,20 +1,11 @@
+from string import ascii_lowercase
 class rook():
-  def __init__(self, colour, side):
+  def __init__(self, colour, position):
     self.colour = colour
-    self.side = side
-    self.position = []
-    if self.side == "one":
-      self.position.append(1)
-    elif self.colour == "two":
-      self.position.append(8)
-    if self.colour == "white":
-      self.position.append(1)
-    elif self.colour == "black":
-      self.position.append(8)
+    self.position = position
 
-  def set_position(self, x, y):
-    self.position[0] = x
-    self.position[1] = y
+  def set_position(self, position):
+    self.position = position
 
   def get_type(self):
     return "r"

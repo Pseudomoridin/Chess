@@ -1,17 +1,12 @@
+from string import ascii_lowercase
 class pawn():
-  def __init__(self, x, colour):
+  def __init__(self, colour, position):
     self.colour = colour
-    self.x = x
-    self.at_start = True
-    self.position = [self.x]
-    if self.colour == "white":
-      self.position.append(2)
-    elif self.colour == "black":
-      self.position.append(7)
+    self.position = position
+    self.atStart = True
 
-  def set_position(self, x, y):
-    self.position[0] = x
-    self.position[1] = y
+  def set_position(self, position):
+    self.position = position
 
   def get_type(self):
     return "p"
