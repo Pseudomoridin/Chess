@@ -13,19 +13,32 @@ class bishop():
   def get_position(self):
     return self.position
 
-  def move_logic(self, x, y):
-    self.change_x = abs(self.position[0] - x)
-    self.change_y = abs(self.position[1] - y)
-    if self.change_x == self.change_y:
-      return True
-    else:
-      return False
+  def get_colour(self):
+    return self.colour
 
-  def move(self, x, y):
-    if self.move_logic(x, y) == True:
-      self.position[0] = x
-      self.position[1] = y
+  def move_logic(self, move):
+    self.move_list = []
+    self.alpha = ascii_lowercase.index(move[0])
+    self.numeral = int(move[1])
+    for x in range(-8, 9):
+      self.test_alpha = self.alpha + x
+      self.test_alpha2 = self.alpha - x
+      try:
+        self.test_alpha = ascii_lowercase[self.test_alpha]
+        self.test_alpha2 = ascii_lowercase[self.test_alpha2]
+      except:
+        continue
+      self.test_numeral = self.numeral + x
+      self.test_move = self.test_alpha + str(self.test_numeral)
+      self.test_move2 = self.test_alpha2 + str(self.test_numeral)
+      self.move_list.append(self.test_move)
+      self.move_list.append(self.test_move2)
+    return self.move_list
+  
+  def move(self, move):
+    self.moves = self.move_logic(move)
+    if (move in self.moves) == True:
+      self.position = move
       return True
     else:
       return False
-  

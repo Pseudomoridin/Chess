@@ -20,7 +20,10 @@ class board():
     }
 
   def get_piece(self, position):
-    return self.chessboard[position]
+    try:
+      return self.chessboard[position]
+    except:
+      return "-"
 
   def return_board(self):
     print_board = []
@@ -35,4 +38,30 @@ class board():
     return print_board
 
   def move_piece(self, move):
-    self
+    self.start = move[:move.index(" to ")]
+    self.end = move[move.index(" to ") + 4 :]
+    self.bool_move = self.chessboard[self.start].move(self.end)
+    if self.bool_move == True:
+      if self.query_take_piece(self.end) == False:
+        self.store_piece = self.chessboard[self.start]
+        self.chessboard[self.start] = "-"
+        self.chessboard[self.end] = self.store_piece
+      elif self.take_piece(self.start, self.end) == True:
+        self.store_piece = self.chessboard[self.start]
+        self.chessboard[self.start] = "-"
+        self.chessboard[self.end] = self.store_piece
+
+  def query_take_piece(self, position):
+    if self.get_piece(position) == "-":
+      return False
+    else:
+      return True
+
+  def take_piece(self, start, end):
+    try:
+      if not self.chessboard(start).get_colour() == self.chessboard(end).get_colour():
+        return True
+      else:
+        return False
+    except:
+      return False

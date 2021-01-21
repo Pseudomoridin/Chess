@@ -13,5 +13,4 @@ while True:
       print(item, end=' ')
   print("\n\n\tA B C D E F G H")
   chessboard.move_piece(input())
-  chessboard.store_board()
 #"""

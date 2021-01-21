@@ -13,18 +13,26 @@ class king():
   def get_position(self):
     return self.position
 
-  def move_logic(self, x, y):
-    self.change_x = abs(self.position[0] - x)
-    self.change_y = abs(self.position[1] - y)
-    if (self.change_x >= 1) and (self.change_y >= 1):
-      return True
-    else:
-      return False
+  def get_colour(self):
+    return self.colour
+
+  def move_logic(self):
+    self.move_list = []
+    self.alpha = self.position[0]
+    self.alpha = ascii_lowercase.index(self.alpha)
+    self.numeral = int(self.position[1])
+    for x in range(-1, 2):
+      for y in range(-1, 2):
+        self.test_alpha = self.alpha + x
+        self.test_numeral = self.numeral + y
+        self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+        self.move_list.append(self.test_move)
+    return self.move_list
   
-  def move(self, x, y):
-    if self.move_logic(x, y) == True:
-      self.position[0] = x
-      self.position[1] = y
+  def move(self, move):
+    self.moves = self.move_logic()
+    if (move in self.moves) == True:
+      self.position = move
       return True
     else:
       return False
