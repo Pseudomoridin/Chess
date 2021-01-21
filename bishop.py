@@ -17,7 +17,7 @@ class bishop():
     self.position[1] = y
 
   def get_type(self):
-    return "bishop"
+    return "b"
 
   def get_position(self):
     return self.position

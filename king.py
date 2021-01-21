@@ -11,7 +11,7 @@ class king():
     self.position[1] = y
 
   def get_type(self):
-    return "king"
+    return "K"
 
   def get_position(self):
     return self.position

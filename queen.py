@@ -11,7 +11,7 @@ class queen():
     self.position[1] = y
 
   def get_type(self):
-    return "queen"
+    return "Q"
 
   def get_position(self):
     return self.position

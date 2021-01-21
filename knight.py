@@ -17,7 +17,7 @@ class knight():
     self.position[1] = y
 
   def get_type(self):
-    return "knight"
+    return "n"
 
   def get_position(self):
     return self.position

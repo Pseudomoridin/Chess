@@ -17,7 +17,7 @@ class rook():
     self.position[1] = y
 
   def get_type(self):
-    return "rook"
+    return "r"
 
   def get_position(self):
     return self.position
