@@ -53,6 +53,8 @@ class board():
         self.store_piece = self.chessboard[self.start]
         self.chessboard[self.start] = "-"
         self.chessboard[self.end] = self.store_piece
+    else:
+      print("invalid move")
 
   def query_take_piece(self, position):
     if self.get_piece(position) == "-":
