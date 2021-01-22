@@ -20,7 +20,7 @@ class knight():
     self
   
   def move(self, move):
-    self.moves = self.move_logic()
+    self.moves = self.move_logic(move)
     if (move in self.moves) == True:
       self.position = move
       return True

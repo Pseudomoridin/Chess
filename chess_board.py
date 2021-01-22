@@ -41,6 +41,9 @@ class board():
     self.start = move[:move.index(" to ")]
     self.end = move[move.index(" to ") + 4 :]
     self.bool_move = self.chessboard[self.start].move(self.end)
+    if self.bool_move == "take":
+      if self.query_take_piece(self.end) == True:
+        self.bool_move = True
     if self.bool_move == True:
       if self.query_take_piece(self.end) == False:
         self.store_piece = self.chessboard[self.start]
@@ -59,7 +62,7 @@ class board():
 
   def take_piece(self, start, end):
     try:
-      if not self.chessboard(start).get_colour() == self.chessboard(end).get_colour():
+      if not self.chessboard[start].get_colour() == self.chessboard[end].get_colour():
         return True
       else:
         return False

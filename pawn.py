@@ -37,14 +37,35 @@ class pawn():
         self.move_list.append(self.test_move2)
     self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
     self.move_list.append(self.test_move)
-    print(self.move_list)
     return self.move_list
   
+  def take_logic(self, move):
+    self.take_list = []
+    self.alpha = self.position[0]
+    self.alpha = ascii_lowercase.index(self.alpha)
+    self.numeral = int(self.position[1])
+    self.test_alpha = self.alpha
+    if self.colour == "white":
+      self.test_numeral = self.numeral + 1
+    elif self.colour == "black":
+      self.test_numeral = self.numeral - 1
+    self.test_alpha -= 1
+    self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+    self.take_list.append(self.test_move)
+    self.test_alpha += 2
+    self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+    self.take_list.append(self.test_move)
+    return self.take_list
+
+
   def move(self, move):
     self.moves = self.move_logic(move)
+    self.take = self.take_logic(move)
     if (move in self.moves) == True:
       self.position = move
       self.atStart = False
       return True
+    elif (move in self.take) == True:
+      return "take"
     else:
       return False
