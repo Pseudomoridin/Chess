@@ -17,10 +17,21 @@ class rook():
     return self.colour
 
   def move_logic(self, move):
-    self
+    self.move_list = []
+    self.alpha = self.position[0]
+    self.alpha = ascii_lowercase.index(self.alpha)
+    self.numeral = int(self.position[1])
+    for x in range(-8, 9):
+      self.test_alpha = self.alpha + x
+      self.test_move = ascii_lowercase[self.test_alpha] + str(self.numeral)
+      self.move_list.append(self.test_move)
+      self.test_numeral = self.numeral + x
+      self.test_move = ascii_lowercase[self.alpha] + str(self.test_numeral)
+      self.move_list.append(self.test_move)
+    return self.move_list
   
   def move(self, move):
-    self.moves = self.move_logic()
+    self.moves = self.move_logic(move)
     if (move in self.moves) == True:
       self.position = move
       return True

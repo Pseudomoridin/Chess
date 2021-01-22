@@ -17,7 +17,23 @@ class knight():
     return self.colour
 
   def move_logic(self, move):
-    self
+    self.move_list = []
+    self.alpha = self.position[0]
+    self.alpha = ascii_lowercase.index(self.alpha)
+    self.numeral = int(self.position[1])
+    for x in range(-2, 3, 4):
+      for y in range(-1, 2, 2):
+        self.test_alpha = self.alpha + x
+        self.test_numeral = self.numeral + y
+        self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+        self.move_list.append(self.test_move)
+    for y in range(-2, 3, 4):
+      for x in range(-1, 2, 2):
+        self.test_alpha = self.alpha + x
+        self.test_numeral = self.numeral + y
+        self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+        self.move_list.append(self.test_move)
+    return self.move_list
   
   def move(self, move):
     self.moves = self.move_logic(move)
