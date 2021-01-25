@@ -16,6 +16,9 @@ class rook():
   def get_colour(self):
     return self.colour
 
+  def isCollision(self, move):
+    return False
+    
   def move_logic(self, move):
     self.move_list = []
     self.alpha = self.position[0]

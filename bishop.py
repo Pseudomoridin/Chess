@@ -16,6 +16,21 @@ class bishop():
   def get_colour(self):
     return self.colour
 
+  def isCollision(self, move, board):
+    self.num_diff = int(move[1]) - int(self.position[1])
+    self.alpha = self.position[0]
+    self.alpha = ascii_lowercase.index(self.alpha)
+    self.numeral = int(self.position[1])
+    for x in range(self.num_diff, 2):
+      print("iterated")
+      self.test_alpha = self.alpha + x
+      self.test_numeral = self.numeral + x
+      self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+      if not (board.get_piece(self.test_move) == "-"):
+        print("iterated")
+        return True
+    return False
+
   def move_logic(self, move):
     self.move_list = []
     self.alpha = ascii_lowercase.index(move[0])

@@ -44,6 +44,9 @@ class board():
     if self.bool_move == "take":
       if self.query_take_piece(self.end) == True:
         self.bool_move = True
+    #testing for piece collisions
+    if self.chessboard[self.start].isCollision(self.end, self.chessboard) == True and self.bool_move == True:
+      self.bool_move = False
     if self.bool_move == True:
       if self.query_take_piece(self.end) == False:
         self.store_piece = self.chessboard[self.start]
