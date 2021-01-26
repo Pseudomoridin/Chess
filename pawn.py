@@ -17,7 +17,18 @@ class pawn():
   def get_colour(self):
     return self.colour
 
-  def isCollision(self, move):
+  def isCollision(self, move, board):
+    self.num_diff = int(move[1]) - int(self.position[1])
+    if self.num_diff == 2:
+      self.test_move = move[0] + str(int(move[1]) - 1)
+      if not (board.get_piece(self.test_move) == "-"):
+        return True
+    elif self.num_diff == -2:
+      self.test_move = move[0] + str(int(move[1]) + 1)
+      if not (board.get_piece(self.test_move) == "-"):
+        return True
+    self.position = move
+    self.atStart = False
     return False
 
   def move_logic(self, move):
@@ -65,8 +76,6 @@ class pawn():
     self.moves = self.move_logic(move)
     self.take = self.take_logic(move)
     if (move in self.moves) == True:
-      self.position = move
-      self.atStart = False
       return True
     elif (move in self.take) == True:
       return "take"

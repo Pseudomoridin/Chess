@@ -12,8 +12,8 @@ while True:
     for item in row:
       print(item, end=' ')
   print("\n\n\tA B C D E F G H")
-  try:
-    chessboard.move_piece(input())
-  except:
-    print("invalid move")
+  #try:
+  chessboard.move_piece(input())
+  #except:
+  #  print("invalid move")
 #"""

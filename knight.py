@@ -16,7 +16,7 @@ class knight():
   def get_colour(self):
     return self.colour
 
-  def isCollision(self, move):
+  def isCollision(self, move, board):
     return False
 
   def move_logic(self, move):

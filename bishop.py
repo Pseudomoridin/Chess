@@ -22,13 +22,28 @@ class bishop():
     self.alpha = ascii_lowercase.index(self.alpha)
     self.numeral = int(self.position[1])
     for x in range(self.num_diff, 2):
-      print("iterated")
       self.test_alpha = self.alpha + x
       self.test_numeral = self.numeral + x
       self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
       if not (board.get_piece(self.test_move) == "-"):
-        print("iterated")
         return True
+      self.test_alpha = self.alpha + x
+      self.test_numeral = self.numeral - x
+      self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+      if not (board.get_piece(self.test_move) == "-"):
+        return True
+    for x in range(1, self.num_diff + 1):
+      self.test_alpha = self.alpha + x
+      self.test_numeral = self.numeral + x
+      self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+      if not (board.get_piece(self.test_move) == "-"):
+        return True
+      self.test_alpha = self.alpha + x
+      self.test_numeral = self.numeral - x
+      self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+      if not (board.get_piece(self.test_move) == "-"):
+        return True
+    self.position = move
     return False
 
   def move_logic(self, move):
@@ -53,7 +68,6 @@ class bishop():
   def move(self, move):
     self.moves = self.move_logic(move)
     if (move in self.moves) == True:
-      self.position = move
       return True
     else:
       return False
