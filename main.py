@@ -1,6 +1,5 @@
 from chess_board import board
 import tkinter as tk
-import time
 
 def handle_click_a1(event):
   input_chess.append("a1")
@@ -158,18 +157,17 @@ def update():
       y += 1
     x +=1
 
-def handle_click_go(event):
+def go():
   global input_chess
-  print(input_chess)
-    #while not len(input_chess) == 2:
-    # time.sleep(1)
-  try:
-    input_fin = input_chess[0] + " to " + input_chess[1]
-    chessboard.move_piece(input_fin)
-  except:
-    print("failure")
-  input_chess = []
-  update()
+  if len(input_chess) == 2:
+    try:
+      input_fin = input_chess[0] + " to " + input_chess[1]
+      chessboard.move_piece(input_fin)
+    except:
+      print("failure")
+    input_chess = []
+    update()
+#  window.after(1000, go())
 
 input_chess = []
 chessboard = board()
@@ -403,10 +401,9 @@ frame_6.pack()
 frame_7.pack()
 frame_8.pack()
 
-go = tk.Button(text = "GO",  master = window)
-go.pack()
-go.bind('<Button-1>', handle_click_go)
-
 update()
+while True:
+  window.update()
+  window.after(0, go())
 
 window.mainloop()
