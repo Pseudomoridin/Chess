@@ -61,25 +61,33 @@ class queen():
   
   def bishop_collision_logic(self, num_diff, numeral, alpha, board):
     for x in range(num_diff, 2):
+      if x == 0:
+        continue
       self.test_alpha = alpha + x
       self.test_numeral = numeral + x
       self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+      print(self.test_move)
       if not (board.get_piece(self.test_move) == "-"):
         return True
       self.test_alpha = alpha + x
       self.test_numeral = numeral - x
       self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+      print(self.test_move)
       if not (board.get_piece(self.test_move) == "-"):
         return True
     for x in range(1, num_diff + 1):
+      if x == 0:
+        continue
       self.test_alpha = alpha + x
       self.test_numeral = numeral + x
       self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+      print(self.test_move)
       if not (board.get_piece(self.test_move) == "-"):
         return True
       self.test_alpha = alpha + x
       self.test_numeral = numeral - x
       self.test_move = ascii_lowercase[self.test_alpha] + str(self.test_numeral)
+      print(self.test_move)
       if not (board.get_piece(self.test_move) == "-"):
         return True
     return False

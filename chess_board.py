@@ -37,6 +37,12 @@ class board():
           print_board[x].append("-")
     return print_board
 
+  def query_take_piece(self, position):
+    if self.get_piece(position) == "-":
+      return False
+    else:
+      return True
+
   def move_piece(self, move):
     self.start = move[:move.index(" to ")]
     self.end = move[move.index(" to ") + 4 :]
@@ -58,12 +64,6 @@ class board():
         self.chessboard[self.end] = self.store_piece
     else:
       print("invalid move")
-
-  def query_take_piece(self, position):
-    if self.get_piece(position) == "-":
-      return False
-    else:
-      return True
 
   def take_piece(self, start, end):
     try:

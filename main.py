@@ -121,21 +121,21 @@ def handle_click_h7(event):
   input_chess.append("h7")
 
 def handle_click_a8(event):
-  input_chess.append("a")
+  input_chess.append("a8")
 def handle_click_b8(event):
-  input_chess.append("b")
+  input_chess.append("b8")
 def handle_click_c8(event):
-  input_chess.append("c")
+  input_chess.append("c8")
 def handle_click_d8(event):
-  input_chess.append("d")
+  input_chess.append("d8")
 def handle_click_e8(event):
-  input_chess.append("e")
+  input_chess.append("e8")
 def handle_click_f8(event):
-  input_chess.append("f")
+  input_chess.append("f8")
 def handle_click_g8(event):
-  input_chess.append("g")
+  input_chess.append("g8")
 def handle_click_h8(event):
-  input_chess.append("h")
+  input_chess.append("h8")
 
 def update():
   return_board = chessboard.return_board()

@@ -16,7 +16,8 @@ class king():
   def get_colour(self):
     return self.colour
 
-  def isCollision(self, move):
+  def isCollision(self, move, board):
+    self.position = move
     return False
 
   def move_logic(self):
@@ -35,7 +36,6 @@ class king():
   def move(self, move):
     self.moves = self.move_logic()
     if (move in self.moves) == True:
-      self.position = move
       return True
     else:
       return False
