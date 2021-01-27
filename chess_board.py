@@ -32,7 +32,7 @@ class board():
       for y in range(8):
         try:
           position = ascii_lowercase[y] + str(x+1)
-          print_board[x].append(self.get_piece(position).get_type())
+          print_board[x].append([self.get_piece(position).get_type(), self.get_piece(position).get_colour()])
         except:
           print_board[x].append("-")
     return print_board
