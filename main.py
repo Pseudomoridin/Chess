@@ -1,8 +1,4 @@
 from chess_board import board
-input_chess = []
-chessboard = board()
-
-"""
 import tkinter as tk
 
 def handle_click_a1(event):
@@ -173,6 +169,8 @@ def go():
     update()
 #  window.after(1000, go())
 
+input_chess = []
+chessboard = board()
 root = tk.Tk()
 root.withdraw()
 window = tk.Toplevel(root)
@@ -409,4 +407,3 @@ while True:
   window.after(0, go())
 
 window.mainloop()
-#"""
